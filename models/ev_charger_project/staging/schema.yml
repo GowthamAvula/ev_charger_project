@@ -6,3 +6,15 @@ sources:
     schema: ev_analytics
     tables:
       - name: charging_sessions
+
+models:
+  - name: fact_charging_sessions
+    columns:
+      - name: session_id
+        tests:
+          - unique
+          - not_null
+
+      - name: energy_kwh
+        tests:
+          - not_null
