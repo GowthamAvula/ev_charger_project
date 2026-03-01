@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: ev_analytics
+    database: ev-analytics-0
+    schema: ev_analytics
+    tables:
+      - name: charging_sessions
