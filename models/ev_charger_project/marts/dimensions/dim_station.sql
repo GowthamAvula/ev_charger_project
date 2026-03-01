@@ -1,7 +1,7 @@
 {{ config(materialized='table') }}
 
 select
-    {{ dbt_utils.generate_surrogate_key(['station_id']) }} as station_key,
+    to_hex(md5(cast(station_id as string))) as station_key,
     station_id,
     city,
     charger_type,
@@ -12,4 +12,5 @@ select
     avg(session_duration_minutes) as avg_duration
 
 from {{ ref('stg_charging_sessions') }}
+
 group by station_id, city, charger_type
