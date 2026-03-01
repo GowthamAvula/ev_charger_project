@@ -36,4 +36,5 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
   # Configuring models
 models:
-  +materialized: view
+  ev_charger_project:
+    +materialized: view
